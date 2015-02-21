@@ -3,18 +3,3 @@
 var should = require('should');
 var app = require('../../app');
 var request = require('supertest');
-
-describe('GET /api/merchants/', function() { //  fix later (it should get a specific merchant's cardtypes)
-
-  it('should respond with JSON array', function(done) {
-    request(app)
-      .get('/api/merchants')
-      .expect(200)
-      .expect('Content-Type', /json/)
-      .end(function(err, res) {
-        if (err) return done(err);
-        res.body.should.be.instanceof(Array);
-        done();
-      });
-  });
-});

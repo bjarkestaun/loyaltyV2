@@ -5,10 +5,7 @@ var app = require('../../app');
 var request = require('supertest');
 var Merchant = require('./merchant.model');
 
-var lars = '20150202';
-
-var Merchant = new Merchant({
-  created: Date,
+var merchantInfo = {
   status: 1,
   lastUpdated: Date.now(),
   name: 'test merchant',
@@ -26,7 +23,9 @@ var Merchant = new Merchant({
   phone: '+4511223344',
   url: 'http://www.test.com',
   vatNumber: '12345678'
-});
+};
+
+var merchant = new Merchant(merchantInfo);
 
 describe('GET /api/merchants', function() {
 
@@ -41,4 +40,5 @@ describe('GET /api/merchants', function() {
         done();
       });
   });
+
 });
