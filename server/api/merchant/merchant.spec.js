@@ -47,8 +47,6 @@ describe('GET /api/merchants', function() {
 
 describe('POST /api/merchants', function() {
 
-  // TODO: make sure that this test merchant is deleted from production db afterwards
-
   it('should create new merchant object', function(done) {
     request(app)
       .post('/api/merchants')
