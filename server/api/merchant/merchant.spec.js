@@ -49,7 +49,7 @@ describe('Merchants API', function() {
 
   // TODO: add test that gets, changes and deletes the merchant we created
   // TODO: remove capital letters from comments when lars is not looking
-
+  
   it('should create new merchant object', function(done) {
     request(app)
       .post('/api/merchants')
