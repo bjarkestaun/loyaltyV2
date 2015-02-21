@@ -18,7 +18,7 @@ var CardTypeSchema = new Schema({
   merchant_id: {type: Schema.Types.ObjectId, ref: 'Merchant'},
   maxPoints: Number,
   duration: Number,
-  eventTypes: [eventTypeSchema]
+  eventTypes: [EventTypeSchema]
 });
 
-module.exports = mongoose.model('Cardtype', CardtypeSchema);
+module.exports = mongoose.model('CardType', CardTypeSchema);
