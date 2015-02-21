@@ -25,6 +25,8 @@ var merchantInfo = {
   vatNumber: '12345678'
 };
 
+var merchant_id = '';
+
 var merchant = new Merchant(merchantInfo);
 
 describe('GET /api/merchants', function() {
@@ -41,4 +43,36 @@ describe('GET /api/merchants', function() {
       });
   });
 
+});
+
+describe('POST /api/merchants', function() {
+
+  // TODO: make sure that this test merchant is deleted from production db afterwards
+
+  it('should create new merchant object', function(done) {
+    request(app)
+      .post('/api/merchants')
+      .send(merchant)
+      .end(function(err, res) {
+        if (err) return done(err);
+        res.should.have.status(201);
+        merchant_id = res.body._id;
+        done();
+      });
+  });
+
+});
+
+describe('DELETE /api/merchants/:merchant_id', function() {
+
+  it('should delete the merchant we just created', function(done) {
+    request(app)
+      .delete('/api/merchants/' + merchant_id)
+      .expect(204)
+      .end(function(err, res) {
+        if (err) return done(err);
+        done();
+      });
+  });
+  
 });
