@@ -59,8 +59,32 @@ describe('Merchant Model', function() {
     });
   });
 
+  it('should fail when saving a merchant with no name', function(done) {
+    merchant.name = '';
+    merchant.save(function(err) {
+      should.exist(err);
+      done();
+    });
+  });
+
   it('should fail when saving a merchant with no email', function(done) {
     merchant.email = '';
+    merchant.save(function(err) {
+      should.exist(err);
+      done();
+    });
+  });
+
+  it('should fail when saving a merchant with no phone', function(done) {
+    merchant.phone = '';
+    merchant.save(function(err) {
+      should.exist(err);
+      done();
+    });
+  });
+
+  it('should fail when saving a merchant with no vatNumber', function(done) {
+    merchant.vatNumber = '';
     merchant.save(function(err) {
       should.exist(err);
       done();
